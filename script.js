@@ -193,6 +193,8 @@ let resultRef = document.querySelector("#result");
 function clickHandler(e) {
 
     // console.log(dateInputRef.value);
+    e.preventDefault();
+
     let bdayStr = dateInputRef.value
 
     if (bdayStr !== "") {
@@ -207,16 +209,16 @@ function clickHandler(e) {
         let isPalindrome = checkPalindromeForAllDateFormats(date);
         // console.log(isPalindrome);
         if (isPalindrome) {
-            resultRef.innerText = "Yay! Your Birthday is a Palindrome !! 🤩🥳 "
+            resultRef.innerText = "Yay! Your Birthday is a Palindrome !! 🤩🥳 ";
             confetti({
                 particleCount: 100,
                 spread: 70,
                 origin: { y: 0.6 },
-              });
-
+            });
         }
 
-    
+
+
         else {
             let [ctr, nextDate] = getNextPalindromeDate(date);
             resultRef.innerText = `The Next Palindrome date is ${nextDate.day}-${nextDate.month}-${nextDate.year}, You Missed by ${ctr} days!`
@@ -225,51 +227,6 @@ function clickHandler(e) {
 }
 
 showBtnRef.addEventListener("click", clickHandler);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
